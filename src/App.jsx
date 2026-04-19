@@ -552,18 +552,22 @@ function Navbar({ scrolled }) {
           </div>
         </div>
 
-        <button
-          className="flex items-center gap-2 font-orbitron font-black rounded-lg"
+        <a
+          href="https://meet.google.com/jxb-msie-mro" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-2 font-orbitron font-black rounded-lg no-underline"
           style={{
             padding: '10px 18px', fontSize: 10,
             background: 'linear-gradient(135deg, #FFD700, #FF8C00)',
             border: 'none', cursor: 'pointer', color: '#050816',
             letterSpacing: '0.12em', boxShadow: '0 0 20px rgba(255,215,0,0.25)',
           }}
+          title="Join the Live Meeting"
         >
           WATCH LIVE
-          <span className="inline-block w-2 h-2 bg-red-600 rounded-full" style={{ boxShadow: '0 0 6px #FF2222' }} />
-        </button>
+          <span className="inline-block w-2 h-2 bg-red-600 rounded-full" style={{ boxShadow: '0 0 6px #FF2222', animation: 'livePing 1.5s ease infinite' }} />
+        </a>
       </div>
     </header>
   );
