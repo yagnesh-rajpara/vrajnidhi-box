@@ -172,64 +172,53 @@ function MatchCard({ match, idx }) {
         </div>
       )}
 
-      {/* Card body – stacks vertically on small screens */}
-      <div className="flex flex-col sm:flex-row items-center" style={{ padding: '20px 24px', gap: 16 }}>
-
-        {/* ── Team 1 ── */}
-        <div className="flex sm:flex-1 items-center gap-4 w-full sm:w-auto justify-center sm:justify-start">
-          <LogoBox team={t1} size={88} hover={true} />
-          <div>
-            <p className="font-orbitron font-bold tracking-widest uppercase" style={{ fontSize: 9, color: 'rgba(255,255,255,0.35)', marginBottom: 4 }}>Team</p>
-            <h3 className="font-orbitron font-black uppercase leading-tight"
-              style={{ fontSize: 'clamp(13px, 2.5vw, 18px)', color: t1.accent, textShadow: `0 0 20px ${t1.glow}60` }}>
+      {/* Robust Grid Layout */}
+      <div 
+        className="grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center" 
+        style={{ padding: '24px', gap: '20px' }}
+      >
+        {/* Team 1 (Left Side) - Aligned Center-Right to push towards VS */}
+        <div className="flex items-center gap-4 justify-center sm:justify-end">
+          <div className="text-right">
+            <p className="font-orbitron font-bold tracking-widest uppercase opacity-40 mb-1" style={{ fontSize: 9 }}>Team</p>
+            <h3 className="font-orbitron font-black uppercase leading-tight" 
+                style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: t1.accent, textShadow: `0 0 20px ${t1.glow}60` }}>
               {t1.name}
             </h3>
           </div>
+          <LogoBox team={t1} size={84} hover={true} />
         </div>
 
-        {/* ── VS Center ── */}
-        <div className="flex flex-row sm:flex-col items-center justify-center shrink-0 gap-3 sm:gap-2 sm:px-4">
-          {typeof match.id === 'number' && (
-            <span className="font-orbitron font-black tracking-[0.35em] uppercase hidden sm:block"
-              style={{ fontSize: 9, color: 'rgba(255,255,255,0.22)' }}>
-              Match {match.id}
-            </span>
-          )}
-
-          {/* VS badge */}
-          <div className="relative flex items-center justify-center" style={{ width: 60, height: 60 }}>
-            <div className="absolute inset-0 rounded-full animate-ping opacity-15 pointer-events-none"
-              style={{ background: 'radial-gradient(circle, #FFD700, transparent)', animationDuration: '2.5s' }} />
-            <div className="absolute inset-0 rounded-full"
-              style={{ background: 'radial-gradient(circle, rgba(255,215,0,0.12), transparent 70%)' }} />
-            <span className="font-orbitron font-black relative z-10"
-              style={{ fontSize: 20, color: '#FFD700', textShadow: '0 0 18px rgba(255,215,0,0.8), 0 0 40px rgba(255,215,0,0.3)', letterSpacing: '0.1em' }}>
-              VS
-            </span>
+        {/* Center Block (VS + Match Info) */}
+        <div className="flex flex-col items-center justify-center px-4">
+          <span className="font-orbitron font-black tracking-[0.4em] uppercase opacity-20 mb-2" style={{ fontSize: 9 }}>
+            Match {match.id}
+          </span>
+          <div className="relative flex items-center justify-center mb-2" style={{ width: 64, height: 64 }}>
+            <div className="absolute inset-0 rounded-full animate-ping opacity-10" style={{ background: '#FFD700' }} />
+            <div className="absolute inset-0 rounded-full bg-yellow-400/5 border border-yellow-400/20 shadow-[0_0_20px_rgba(255,215,0,0.1)]" />
+            <span className="font-orbitron font-black text-yellow-400 text-xl tracking-widest z-10" style={{ textShadow: '0 0 15px rgba(255,215,0,0.5)' }}>VS</span>
           </div>
-
-          {/* Time */}
           {match.time !== 'TBD' ? (
-            <div className="flex items-center gap-1.5 font-orbitron font-bold tracking-widest" style={{ fontSize: 10, color: '#00CFFF' }}>
-              <Clock size={11} /> {match.time}
+            <div className="flex items-center gap-1 font-orbitron font-bold text-cyan-400" style={{ fontSize: 10 }}>
+              <Clock size={10} /> {match.time}
             </div>
           ) : (
-            <span className="font-orbitron tracking-widest" style={{ fontSize: 9, color: 'rgba(255,255,255,0.2)' }}>TIME TBD</span>
+            <span className="font-orbitron text-[9px] opacity-20 tracking-widest">TBD</span>
           )}
         </div>
 
-        {/* ── Team 2 ── */}
-        <div className="flex sm:flex-1 items-center gap-4 w-full sm:w-auto justify-center sm:justify-end flex-row-reverse sm:flex-row-reverse">
-          <LogoBox team={t2} size={88} hover={true} />
-          <div className="text-right sm:text-left">
-            <p className="font-orbitron font-bold tracking-widest uppercase" style={{ fontSize: 9, color: 'rgba(255,255,255,0.35)', marginBottom: 4 }}>Team</p>
-            <h3 className="font-orbitron font-black uppercase leading-tight"
-              style={{ fontSize: 'clamp(13px, 2.5vw, 18px)', color: t2.accent, textShadow: `0 0 20px ${t2.glow}60` }}>
+        {/* Team 2 (Right Side) - Aligned Center-Left to push towards VS */}
+        <div className="flex items-center gap-4 justify-center sm:justify-start">
+          <LogoBox team={t2} size={84} hover={true} />
+          <div className="text-left">
+            <p className="font-orbitron font-bold tracking-widest uppercase opacity-40 mb-1" style={{ fontSize: 9 }}>Team</p>
+            <h3 className="font-orbitron font-black uppercase leading-tight" 
+                style={{ fontSize: 'clamp(14px, 2vw, 18px)', color: t2.accent, textShadow: `0 0 20px ${t2.glow}60` }}>
               {t2.name}
             </h3>
           </div>
         </div>
-
       </div>
 
       {/* Bottom glow line */}
