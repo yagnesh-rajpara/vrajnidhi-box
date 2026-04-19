@@ -18,26 +18,26 @@ const scheduleData = [
     day: 'Day 1', date: '22 April 2026', weekday: 'Wednesday',
     matches: [
       { id: 1,    t1: TEAMS.FF, t2: TEAMS.GT, time: '9:00 PM' },
-      { id: 2,    t1: TEAMS.LO, t2: TEAMS.HA, time: 'TBD' },
-      { id: 3,    t1: TEAMS.GT, t2: TEAMS.PH, time: 'TBD' },
-      { id: 4,    t1: TEAMS.FF, t2: TEAMS.HA, time: 'TBD' },
+      { id: 2,    t1: TEAMS.LO, t2: TEAMS.HA, time: '9:30 PM' },
+      { id: 3,    t1: TEAMS.GT, t2: TEAMS.PH, time: '10:00 PM' },
+      { id: 4,    t1: TEAMS.FF, t2: TEAMS.HA, time: '10:30 PM' },
     ],
   },
   {
     day: 'Day 2', date: '23 April 2026', weekday: 'Thursday',
     matches: [
-      { id: 5,    t1: TEAMS.LO, t2: TEAMS.MS, time: 'TBD' },
-      { id: 6,    t1: TEAMS.PH, t2: TEAMS.LO, time: 'TBD' },
+      { id: 5,    t1: TEAMS.LO, t2: TEAMS.MS, time: '9:00 PM' },
+      { id: 6,    t1: TEAMS.PH, t2: TEAMS.LO, time: '9:30 PM' },
     ],
   },
   {
     day: 'Day 3', date: '24 April 2026', weekday: 'Friday',
     matches: [
-      { id: 7,    t1: TEAMS.FF, t2: TEAMS.MS, time: 'TBD' },
-      { id: 8,    t1: TEAMS.GT, t2: TEAMS.MS, time: 'TBD' },
-      { id: 9,    t1: TEAMS.HA, t2: TEAMS.PH, time: 'TBD' },
+      { id: 7,    t1: TEAMS.FF, t2: TEAMS.MS, time: '9:00 PM' },
+      { id: 8,    t1: TEAMS.GT, t2: TEAMS.MS, time: '9:30 PM' },
+      { id: 9,    t1: TEAMS.HA, t2: TEAMS.PH, time: '10:00 PM' },
       {
-        id: 'QF', isQF: true, time: 'TBD',
+        id: 'QF', isQF: true, time: '10:30 PM',
         t1: { name: 'Rank 3', short: '#3', logo: null, accent: '#FFD700', glow: '#FFD700' },
         t2: { name: 'Rank 4', short: '#4', logo: null, accent: '#00CFFF', glow: '#00CFFF' },
       },
@@ -291,17 +291,17 @@ const playoffStages = [
   {
     label: 'Qualifier 1', desc: 'Rank 1', desc2: 'vs', desc3: 'Rank 2',
     subtext: 'Top 2 teams battle for a direct FINAL spot',
-    color: '#3B9EFF', icon: <Zap size={20} />, number: '01',
+    color: '#3B9EFF', icon: <Zap size={20} />, number: '01', time: '9:00 PM'
   },
   {
     label: 'Qualifier 2', desc: 'Winner of QF', desc2: 'vs', desc3: 'Loser of Q1',
     subtext: 'Redemption match — last chance to reach the Final',
-    color: '#B06FFF', icon: <Flame size={20} />, number: '02',
+    color: '#B06FFF', icon: <Flame size={20} />, number: '02', time: '9:30 PM'
   },
   {
     label: 'Grand Final', desc: 'Winner of Q1', desc2: 'vs', desc3: 'Winner of Q2',
     subtext: 'The ultimate battle for the Championship Crown',
-    color: '#FFD700', icon: <Crown size={22} />, number: '🏆', isFinal: true,
+    color: '#FFD700', icon: <Crown size={22} />, number: '🏆', isFinal: true, time: '10:00 PM'
   },
 ];
 
@@ -361,10 +361,15 @@ function PlayoffCard({ stage, idx }) {
         <p className="font-orbitron font-black text-white" style={{ fontSize: 13, letterSpacing: '0.05em' }}>{stage.desc3}</p>
       </div>
 
-      {/* Subtext */}
-      <p className="font-poppins relative z-10" style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', lineHeight: 1.6 }}>
-        {stage.subtext}
-      </p>
+      {/* Time & Subtext */}
+      <div className="flex flex-col items-center gap-2 relative z-10">
+        <div className="flex items-center gap-1.5 font-orbitron font-bold text-cyan-400 mb-1" style={{ fontSize: 10 }}>
+          <Clock size={11} /> {stage.time}
+        </div>
+        <p className="font-poppins" style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', lineHeight: 1.6 }}>
+          {stage.subtext}
+        </p>
+      </div>
 
       {/* Trophy for final */}
       {stage.isFinal && (
