@@ -118,7 +118,14 @@ function LogoBox({ team, size = 88, hover = false }) {
           }}
         />
       ) : (
-        <Shield size={size * 0.4} style={{ color: team.accent, opacity: 0.7 }} />
+        <div className="flex flex-col items-center justify-center relative w-full h-full opacity-60">
+          <div className="absolute inset-2 rounded-xl border border-dashed border-white/10 animate-[spin_8s_linear_infinite]" />
+          <div className="absolute inset-0 flex items-center justify-center">
+             <div className="w-[40%] h-[40%] rounded-full blur-xl" style={{ background: team.accent }} />
+          </div>
+          <Shield size={size * 0.35} style={{ color: team.accent }} className="relative z-10" />
+          <span className="font-orbitron font-black mt-1 relative z-10" style={{ fontSize: 8, color: team.accent }}>{team.short}</span>
+        </div>
       )}
     </div>
   );
@@ -157,18 +164,21 @@ function MatchCard({ match, idx }) {
         style={{ background: `linear-gradient(90deg, transparent, ${t1.glow}, ${t2.glow}, transparent)` }}
       />
 
-      {/* QF Badge */}
+      {/* QF Badge - Upgraded */}
       {match.isQF && (
         <div
-          className="absolute top-3 right-4 flex items-center gap-1.5 px-3 py-1 rounded-full font-orbitron font-black tracking-widest"
+          className="absolute top-0 right-10 flex items-center gap-1.5 px-4 py-1.5 rounded-b-xl font-orbitron font-black tracking-[0.2em]"
           style={{
             fontSize: 9,
-            background: 'linear-gradient(90deg, rgba(255,215,0,0.15), rgba(255,215,0,0.08))',
-            border: '1px solid rgba(255,215,0,0.3)',
+            background: 'linear-gradient(180deg, rgba(255,215,0,0.2) 0%, rgba(135,110,0,0.4) 100%)',
+            border: '1px solid rgba(255,215,0,0.4)',
+            borderTop: 'none',
             color: '#FFD700',
+            boxShadow: '0 0 20px rgba(255,215,0,0.15), inset 0 0 10px rgba(255,215,0,0.1)',
+            zIndex: 20
           }}
         >
-          <Trophy size={9} /> QUARTER FINAL
+          <Trophy size={10} className="animate-pulse" /> QUARTER FINAL
         </div>
       )}
 
