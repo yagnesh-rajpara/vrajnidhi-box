@@ -481,19 +481,19 @@ function HeroBanner() {
           <span className="inline-block w-2 h-2 rounded-full bg-red-500"
             style={{ boxShadow: '0 0 8px #FF2222', animation: 'livePing 1.5s ease infinite' }} />
           <span className="font-orbitron font-black tracking-[0.4em] uppercase" style={{ fontSize: 10, color: '#00CFFF' }}>
-            Season 01 &nbsp;·&nbsp; April 2026
+            Season 02 &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Vrajnidhi-box
           </span>
         </div>
 
         <h1 className="font-orbitron font-black uppercase leading-tight mb-4"
           style={{ fontSize: 'clamp(32px, 7vw, 68px)', letterSpacing: '-0.02em' }}>
-          <span style={{ color: '#FFFFFF' }}>MATCH</span>
+          <span style={{ color: '#FFFFFF' }}>STREET BOX</span>
           <br />
           <span style={{
             background: 'linear-gradient(135deg, #FFD700 0%, #FF8C00 100%)',
             WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
           }}>
-            SCHEDULE
+            TOURNAMENT
           </span>
         </h1>
 
@@ -534,10 +534,10 @@ function Navbar({ scrolled }) {
           </div>
           <div>
             <p className="font-orbitron font-black text-white tracking-widest" style={{ fontSize: 15, lineHeight: 1 }}>
-              TOURNAMENT
+              STREET BOX
             </p>
             <p className="font-orbitron font-bold tracking-[0.4em]" style={{ fontSize: 9, color: '#FFD700', lineHeight: 1, marginTop: 3 }}>
-              CHAMPIONSHIP 2026
+              S2 · VRAJINDHI-BOX
             </p>
           </div>
         </div>
