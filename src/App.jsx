@@ -446,8 +446,7 @@ function PlayoffSection() {
         <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 md:gap-6">
           {Object.entries(TEAMS).map(([code, team]) => (
             <div key={code} className="flex flex-col items-center gap-2">
-              <img src={team.logo} alt={team.name}
-                style={{ width: 52, height: 52, objectFit: 'contain', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.8))' }} />
+              <LogoBox team={team} size={64} />
               <p className="font-orbitron font-black text-center uppercase"
                 style={{ fontSize: 11, color: team.accent, textShadow: `0 0 10px ${team.glow}40` }}>
                 {code}
@@ -509,10 +508,9 @@ function HeroBanner() {
         </p>
 
         {/* Team logos strip — wraps on mobile */}
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap gap-4">
           {Object.values(TEAMS).map((team, i) => (
-            <img key={i} src={team.logo} alt={team.name}
-              style={{ width: 38, height: 38, objectFit: 'contain', filter: 'drop-shadow(0 2px 8px rgba(0,0,0,0.8)) brightness(1.1)', opacity: 0.85 }} />
+            <LogoBox key={i} team={team} size={48} />
           ))}
         </div>
       </div>
