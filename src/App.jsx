@@ -553,7 +553,7 @@ function Navbar({ scrolled }) {
         </div>
 
         <a
-          href="https://meet.google.com/fse-debq-ntg" 
+          href="https://meet.google.com/guj-jywk-nqj" 
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 font-orbitron font-black rounded-lg no-underline"
